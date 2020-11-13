@@ -15,9 +15,7 @@
         @click="add(item)"
         @mouseover="hover(item)"
       >
-        <i
-          class="lib-item__icon"
-        />
+        <i class="lib-item__icon" />
         <div class="lib-item__title">{{ item.title }}</div>
         <div v-if="item.name === currentName" class="hidden">
           <component :is="item.name" :ref="item.name" />
@@ -135,7 +133,7 @@ export default {
   height: 32px;
   width: 32px;
   background-size: cover;
-  background-image: url(../assets/icon-title.png)
+  background-image: url(../assets/icon-title.png);
 }
 
 .hidden {

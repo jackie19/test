@@ -1,5 +1,5 @@
 <template>
-  <el-radio-group v-model="size" @change="handleChange">
+  <el-radio-group v-model="size">
     <el-radio-button
       v-for="option in options"
       :key="option.label"
@@ -11,12 +11,8 @@
 <script>
 export default {
   name: 'FontSize',
-  model: {
-    prop: 'fontSize',
-    event: 'change',
-  },
   props: {
-    fontSize: {
+    value: {
       default: '',
       type: String,
     },
@@ -43,16 +39,12 @@ export default {
   computed: {
     size: {
       get() {
-        return this.innerSize || this.fontSize
+        return this.value
       },
       set(value) {
         this.innerSize = value
+        this.$emit('input', value)
       },
-    },
-  },
-  methods: {
-    handleChange(v) {
-      this.$emit('change', v)
     },
   },
 }
