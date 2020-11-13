@@ -131,7 +131,7 @@ export default {
   left: -6px;
   width: 40px;
   height: 28px;
-  background-image: url(/icon-del.png);
+  background-image: url(../assets/icon-del.png);
   background-size: 50%;
   background-repeat: no-repeat;
   background-color: #fff;

@@ -103,7 +103,7 @@ export default {
 }
 
 .preview-wrap .preview .preview-head {
-  background-image: url(/phone-top.png);
+  background-image: url(../assets/phone-top.png);
   height: 64px;
 
   background-repeat: no-repeat;

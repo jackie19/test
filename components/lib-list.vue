@@ -17,7 +17,7 @@
       >
         <i
           class="lib-item__icon"
-          style="background-image: url(/icon-title.png)"
+          style="background-image: url(../assets/icon-title.png)"
         />
         <div class="lib-item__title">{{ item.title }}</div>
         <div v-if="item.name === currentName" class="hidden">
