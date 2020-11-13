@@ -42,8 +42,8 @@ export default {
         icon: '',
       },
       {
-        name: 'DxBanner',
-        title: 'Banner',
+        name: 'DxLine',
+        title: '分割',
       },
     ],
   }),

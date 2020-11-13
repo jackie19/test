@@ -2,7 +2,7 @@
   <div class="editor">
     <div class="e-title">{{ data.title }}</div>
     <div class="e-content">
-      <el-form label-position="left" label-width="80px" size="small">
+      <el-form label-position="left" label-width="90px" size="small">
         <el-form-item
           v-for="(property, key, index) of data.attrs"
           :key="index"
@@ -25,7 +25,12 @@
             </el-radio-button>
           </el-radio-group>
 
-          <component :is="property.type" v-else v-model="data.props[key]" />
+          <component
+            :is="property.type"
+            v-else
+            v-model="data.props[key]"
+            v-bind="property.extends"
+          />
         </el-form-item>
       </el-form>
     </div>
