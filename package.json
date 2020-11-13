@@ -1,5 +1,5 @@
 {
-  "name": "dr-creater",
+  "name": "h5-decorate",
   "version": "1.0.0",
   "private": true,
   "scripts": {
@@ -8,7 +8,8 @@
     "start": "nuxt start",
     "generate": "nuxt generate",
     "lint:js": "eslint --ext .js,.vue --ignore-path .gitignore .",
-    "lint": "yarn lint:js"
+    "lint": "yarn lint:js",
+    "upload": "dx-upload --target huawei"
   },
   "dependencies": {
     "@nuxtjs/axios": "^5.12.2",
