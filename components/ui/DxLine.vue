@@ -6,6 +6,7 @@
     <div
       class="dx-line-item"
       :style="{
+        display: display ? 'block' : 'none',
         borderTop: `1px ${borderStyle} ${borderColor}`,
         marginLeft: `${borderMargin}px`,
         marginRight: `${borderMargin}px`,
@@ -22,13 +23,13 @@ export default {
       type: Number,
       default: 20,
     },
-    borderMargin: {
-      type: Number,
-      default: 15,
-    },
     bgColor: {
       type: String,
       default: '#fff',
+    },
+    display: {
+      type: Boolean,
+      default: false,
     },
     borderColor: {
       type: String,
@@ -38,21 +39,34 @@ export default {
       type: String,
       default: 'solid',
     },
+    borderMargin: {
+      type: Number,
+      default: 15,
+    },
   },
   computed: {
     attrs() {
       return {
         height: {
           label: '高度',
+          position: 'top',
           type: 'el-slider',
-          extends: {
+          props: {
             'show-input': true,
           },
+        },
+        bgColor: {
+          label: '背景颜色',
+          type: 'elColorPicker',
+        },
+        display: {
+          label: '显示辅助线',
+          type: 'el-switch',
         },
         borderMargin: {
           label: '左右边距',
           type: 'el-slider',
-          extends: {
+          props: {
             'show-input': true,
           },
         },
@@ -73,10 +87,6 @@ export default {
               value: 'dotted',
             },
           ],
-        },
-        bgColor: {
-          label: '背景颜色',
-          type: 'elColorPicker',
         },
         borderColor: {
           label: '辅助线颜色',
