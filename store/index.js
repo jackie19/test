@@ -20,7 +20,7 @@ export const mutations = {
     }
   },
   updateComponents(state, components) {
-    state.components = components
+    state.components = [state.components[0], ...components]
   },
   updateProps(state, props) {
     const index = state.components.findIndex(

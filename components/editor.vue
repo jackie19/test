@@ -2,48 +2,20 @@
   <div class="editor">
     <div class="e-title">{{ data.title }}</div>
     <div class="e-content">
-      <el-form
-        v-for="(property, key, index) of data.attrs"
-        :key="index"
-        :label-position="property.position || 'left'"
-        label-width="90px"
-        size="small"
-      >
-        <el-form-item :label="property.label">
-          <el-input
-            v-if="property.type === 'input'"
-            v-model="data.props[key]"
-          />
-
-          <el-radio-group
-            v-else-if="property.type === 'radio'"
-            v-model="data.props[key]"
-          >
-            <el-radio-button
-              v-for="option in property.options"
-              :key="option.label"
-              :label="option.value"
-              >{{ option.label }}
-            </el-radio-button>
-          </el-radio-group>
-
-          <component
-            :is="property.type"
-            v-else
-            v-model="data.props[key]"
-            v-bind="property.props"
-          />
-        </el-form-item>
-      </el-form>
+      <d-form :data="data" />
     </div>
   </div>
 </template>
 
 <script>
 import _cloneDeep from 'lodash/cloneDeep'
+import DForm from './form'
 
 export default {
   name: 'Editor',
+  components: {
+    DForm,
+  },
   data: () => ({
     data: {},
   }),
@@ -61,6 +33,7 @@ export default {
     data: {
       deep: true,
       handler(value) {
+        console.log(value, '===========')
         if (Object.keys(value).length) {
           this.$store.commit('updateProps', _cloneDeep(value.props))
         }
