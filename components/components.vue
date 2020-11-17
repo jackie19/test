@@ -58,7 +58,9 @@ export default {
     },
     components: {
       get() {
-        return this.$store.state.components
+        // eslint-disable-next-line no-unused-vars
+        const [pageTitle, ...rest] = this.$store.state.components
+        return rest
       },
       set(value) {
         this.$store.commit('updateComponents', value)

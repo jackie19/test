@@ -8,11 +8,11 @@
 
 <script>
 export default {
-  name: 'DxLine',
+  name: 'DxVideo',
   props: {
     height: {
       type: Number,
-      default: 20,
+      default: 150,
     },
     customUrl: {
       type: String,

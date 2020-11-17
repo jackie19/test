@@ -71,6 +71,13 @@ export default {
 </script>
 
 <style scoped>
+.editor {
+  width: 370px;
+  height: calc(100vh - 64px);
+  overflow-x: hidden;
+  overflow-y: auto;
+  background-color: #fff;
+}
 .e-content {
   text-align: left;
   padding: 12px;
