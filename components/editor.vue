@@ -2,12 +2,14 @@
   <div class="editor">
     <div class="e-title">{{ data.title }}</div>
     <div class="e-content">
-      <el-form label-position="left" label-width="90px" size="small">
-        <el-form-item
-          v-for="(property, key, index) of data.attrs"
-          :key="index"
-          :label="property.label"
-        >
+      <el-form
+        v-for="(property, key, index) of data.attrs"
+        :key="index"
+        :label-position="property.position || 'left'"
+        label-width="90px"
+        size="small"
+      >
+        <el-form-item :label="property.label">
           <el-input
             v-if="property.type === 'input'"
             v-model="data.props[key]"
@@ -29,7 +31,7 @@
             :is="property.type"
             v-else
             v-model="data.props[key]"
-            v-bind="property.extends"
+            v-bind="property.props"
           />
         </el-form-item>
       </el-form>

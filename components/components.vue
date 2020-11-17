@@ -26,7 +26,8 @@
             v-bind="component.props"
           />
           <div class="c-item__del" @click="handleRemove(component.guid)">
-            <div class="c-item__icon"></div>
+            <div class="c-item__title">{{ component.title }}</div>
+            <div class="c-item__icon" />
           </div>
         </div>
       </template>
@@ -124,6 +125,19 @@ export default {
   width: 34px;
 }
 
+.c-item__title {
+  width: 80px;
+  height: 24px;
+  line-height: 24px;
+  font-size: 12px;
+  white-space: nowrap;
+  display: inline-block;
+  background-color: #fff;
+  text-align: center;
+  pointer-events: none;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
+}
+
 .c-item__icon {
   display: none;
   cursor: pointer;
@@ -142,6 +156,11 @@ export default {
 .c-item:hover .c-item__icon,
 .components-wrap .active + .c-item__del .c-item__icon {
   display: block;
+}
+
+.c-item:hover .c-item__title,
+.components-wrap .active + .c-item__del .c-item__title {
+  display: none;
 }
 
 .components-wrap .active:not(.com-item-single):before {

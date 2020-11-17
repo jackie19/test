@@ -1,0 +1,16 @@
+[
+
+  {
+    "name": "DxTitle",
+    "title": "标题文本",
+    "icon": ""
+  },
+  {
+    "name": "DxLine",
+    "title": "分割"
+  },
+  {
+    "name": "DxVideo",
+    "title": "视频"
+  }
+]

@@ -26,6 +26,7 @@
 </template>
 <script>
 import draggable from 'vuedraggable'
+import items from '@/assets/libItems.json'
 
 export default {
   components: {
@@ -35,17 +36,7 @@ export default {
     dragging: false,
     components: [],
     currentName: '',
-    items: [
-      {
-        name: 'DxTitle',
-        title: '标题文本',
-        icon: '',
-      },
-      {
-        name: 'DxLine',
-        title: '分割',
-      },
-    ],
+    items,
   }),
   computed: {
     style() {
@@ -107,6 +98,7 @@ export default {
   -webkit-user-select: none;
   -ms-user-select: none;
   user-select: none;
+  text-align: left;
 }
 
 .c-item {
