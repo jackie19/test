@@ -33,7 +33,6 @@ export default {
     data: {
       deep: true,
       handler(value) {
-        console.log(value, '===========')
         if (Object.keys(value).length) {
           this.$store.commit('updateProps', _cloneDeep(value.props))
         }
