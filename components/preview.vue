@@ -29,7 +29,7 @@ export default {
   },
   methods: {
     handleSelect() {
-      const guid = 'page-title'
+      const guid = 'page-meta'
       const { current } = this.$store.state
       if (current !== guid) {
         this.$store.commit('currentComponent', guid)

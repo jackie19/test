@@ -1,0 +1,40 @@
+{
+  "guid": "page-meta",
+  "name": "page-meta",
+  "title": "页面标题",
+  "props": {
+    "title": "首页"
+  },
+  "attrs": {
+    "title": {
+      "label": "页面标题",
+      "type": "input"
+    },
+    "desc": {
+      "label": "页面描述",
+      "type": "input"
+    },
+    "channel": {
+      "label": "投放渠道",
+      "type": "radio",
+      "options" : [
+        {
+          "label": "小程序",
+          "value": "weapp"
+        },
+        {
+          "label": "h5",
+          "value": "h5"
+        }
+      ],
+      "children": {
+        "weapp": {
+          "barColor": {
+            "label": "导航条颜色",
+            "type": "elColorPicker"
+          }
+        }
+      }
+    }
+  }
+}

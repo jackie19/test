@@ -27,6 +27,7 @@
 <script>
 import draggable from 'vuedraggable'
 import items from '@/assets/libItems.json'
+import pageMeta from '@/assets/pageMeta.json'
 
 export default {
   components: {
@@ -48,6 +49,9 @@ export default {
         disabled: false,
       }
     },
+  },
+  mounted() {
+    this.$store.commit('addComponent', pageMeta)
   },
   methods: {
     guid(name) {

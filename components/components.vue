@@ -25,7 +25,7 @@
             }"
             v-bind="component.props"
           />
-          <div class="c-item__del" @click="handleRemove(component.guid)">
+          <div class="c-item__del" @click.stop="handleRemove(component.guid)">
             <div class="c-item__title">{{ component.title }}</div>
             <div class="c-item__icon" />
           </div>

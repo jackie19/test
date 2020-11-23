@@ -12,7 +12,7 @@ export default {
   props: {
     height: {
       type: Number,
-      default: 150,
+      default: 50,
     },
     customUrl: {
       type: String,
@@ -27,7 +27,7 @@ export default {
           type: 'el-slider',
           props: {
             'show-input': true,
-            min: 150,
+            min: 50,
             max: 900,
           },
         },

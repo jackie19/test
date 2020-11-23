@@ -18,16 +18,12 @@
 import LibList from '@/components/lib-list'
 import preview from '@/components/preview'
 import editor from '@/components/editor'
-import title from '@/assets/pageTitle.json'
 
 export default {
   components: {
     LibList,
     preview,
     editor,
-  },
-  mounted() {
-    this.$store.commit('addComponent', title)
   },
   methods: {
     save() {

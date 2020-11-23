@@ -21,7 +21,7 @@ export default {
   props: {
     height: {
       type: Number,
-      default: 20,
+      default: 8,
     },
     bgColor: {
       type: String,
@@ -33,7 +33,7 @@ export default {
     },
     borderColor: {
       type: String,
-      default: '#fff',
+      default: '#d7d7d7',
     },
     borderStyle: {
       type: String,
@@ -41,7 +41,7 @@ export default {
     },
     borderMargin: {
       type: Number,
-      default: 15,
+      default: 8,
     },
   },
   computed: {
@@ -53,6 +53,8 @@ export default {
           type: 'el-slider',
           props: {
             'show-input': true,
+            min: 0,
+            max: 30,
           },
         },
         bgColor: {
@@ -69,6 +71,8 @@ export default {
                 type: 'el-slider',
                 props: {
                   'show-input': true,
+                  min: 0,
+                  max: 30,
                 },
               },
               borderStyle: {

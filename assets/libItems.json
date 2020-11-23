@@ -12,5 +12,9 @@
   {
     "name": "DxVideo",
     "title": "视频"
+  },
+  {
+    "name": "DxImageAd",
+    "title": "图片广告"
   }
 ]
