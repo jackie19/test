@@ -33,10 +33,13 @@
           />
         </el-form-item>
       </el-form>
-      <template
-        v-if="property.children && data.props[key] === property.childrenVisible"
-      >
-        <d-form :data="{ attrs: property.children, props: data.props }" />
+      <template v-if="property.children && property.children[data.props[key]]">
+        <d-form
+          :data="{
+            attrs: property.children[data.props[key]],
+            props: data.props,
+          }"
+        />
       </template>
     </div>
   </div>
