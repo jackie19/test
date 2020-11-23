@@ -1,6 +1,6 @@
 {
-  "guid": "page-meta",
-  "name": "page-meta",
+  "guid": "PageMeta",
+  "name": "PageMeta",
   "title": "页面标题",
   "props": {
     "title": "首页"
