@@ -55,6 +55,14 @@ export default {
   padding: 12px;
 }
 
+.e-content /deep/ .el-form-item__content {
+  text-align: right;
+}
+
+.e-content /deep/ textarea {
+  display: none;
+}
+
 .editor .e-title {
   font-size: 18px;
   padding: 20px 16px;

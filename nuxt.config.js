@@ -1,7 +1,9 @@
 export default {
   // Disable server-side rendering (https://go.nuxtjs.dev/ssr-mode)
   ssr: false,
-
+  server: {
+    port: 8000, // default: 3000
+  },
   // Global page headers (https://go.nuxtjs.dev/config-head)
   head: {
     title: 'h5-decorate',
@@ -10,7 +12,14 @@ export default {
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       { hid: 'description', name: 'description', content: '' },
     ],
-    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
+    link: [
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+      {
+        href: '//at.alicdn.com/t/font_2228458_9wvh63j46f9.css',
+        rel: 'stylesheet',
+        type: 'text/css',
+      },
+    ],
   },
 
   // Global CSS (https://go.nuxtjs.dev/config-css)
@@ -33,7 +42,7 @@ export default {
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
     // https://go.nuxtjs.dev/pwa
-    '@nuxtjs/pwa',
+    // '@nuxtjs/pwa',
   ],
 
   // Axios module configuration (https://go.nuxtjs.dev/config-axios)
@@ -45,10 +54,10 @@ export default {
   build: {
     publicPath: process.env.NODE_ENV === 'production' ? './' : '/_nuxt',
     transpile: [/^element-ui/],
-    extend(config, {isDev}) {
-      if(!isDev) {
+    extend(config, { isDev }) {
+      if (!isDev) {
         config.output.publicPath = './'
       }
-    }
+    },
   },
 }

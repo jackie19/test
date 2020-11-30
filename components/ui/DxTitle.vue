@@ -98,6 +98,18 @@ export default {
           label: '背景颜色',
           type: 'elColorPicker',
         },
+        link: {
+          label: '启用链接',
+          type: 'elSwitch',
+          children: {
+            true: {
+              bgColor: {
+                label: '链接类型',
+                type: 'elColorPicker',
+              },
+            },
+          },
+        },
       }
     },
   },
@@ -107,7 +119,6 @@ export default {
 <style>
 .dx-title-wrap {
   padding: 16px;
-  background-color: #fff;
 }
 .dx-title {
   padding-bottom: 9px;

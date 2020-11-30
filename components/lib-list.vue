@@ -15,7 +15,7 @@
         @click="add(item)"
         @mouseover="hover(item)"
       >
-        <i class="lib-item__icon" />
+        <i class="lib-item__icon iconfont" :class="item.icon" />
         <div class="lib-item__title">{{ item.title }}</div>
         <div v-if="item.name === currentName" class="hidden">
           <component :is="item.name" :ref="item.name" />
@@ -110,7 +110,7 @@ export default {
   text-align: center;
   display: inline-block;
   width: 50%;
-  height: 78px;
+  height: 70px;
   font-size: 12px;
   margin-bottom: 8px;
   cursor: move;
@@ -118,18 +118,16 @@ export default {
 
 .c-item:hover {
   border-radius: 3px;
-  background-color: #172eec;
-  color: #fff;
+  background: rgba(40, 120, 255, 0.1);
+  color: #2878ff;
 }
 
 .lib-item__icon {
   display: inline-block;
   margin-top: 8px;
-  background-position: 0 0;
   height: 32px;
   width: 32px;
-  background-size: cover;
-  background-image: url(../assets/icon-title.png);
+  font-size: 26px;
 }
 
 .hidden {

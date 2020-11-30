@@ -5,6 +5,7 @@
     width="419px"
     :close-on-click-modal="false"
     :close-on-press-escape="false"
+    :append-to-body="true"
   >
     <div class="img-content">
       <img :src="data.url" alt="" class="img__img" />

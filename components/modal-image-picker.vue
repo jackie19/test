@@ -1,5 +1,10 @@
 <template>
-  <el-dialog title="我的图片" :visible.sync="dialogVisible" width="900px">
+  <el-dialog
+    title="我的图片"
+    :visible.sync="dialogVisible"
+    width="900px"
+    :append-to-body="true"
+  >
     <div class="img-list">
       <div
         v-for="(item, index) in list"
@@ -27,7 +32,7 @@ export default {
   props: {
     max: {
       type: Number,
-      default: 10,
+      default: 10, // 最多选几个，为 1 时单选
     },
     value: {
       type: Boolean,
@@ -44,7 +49,7 @@ export default {
         },
         {
           id: 2,
-          url: '/default-img.png',
+          url: '/default-img2.png',
         },
         {
           id: 3,
@@ -65,10 +70,12 @@ export default {
   },
   methods: {
     handleSelect(item) {
-      if (this.selected.length > 10) {
-        return
-      }
-      if (!this.selected.includes(item.id)) {
+      if (this.max === 1) {
+        this.selected = [item.id]
+      } else if (!this.selected.includes(item.id)) {
+        if (this.selected.length === this.max) {
+          return
+        }
         this.selected.push(item.id)
       } else {
         this.selected.splice(this.selected.indexOf(item.id), 1)

@@ -1,29 +1,56 @@
 {
   "guid": "PageMeta",
   "name": "PageMeta",
-  "title": "页面标题",
+  "title": "页面名词",
   "props": {
-    "title": "首页"
+    "title": "商城首页",
+    "desc": "",
+    "channel": "h5",
+    "bgi": "",
+    "bgc": "#fff",
+    "logo": ""
   },
   "attrs": {
     "title": {
       "label": "页面标题",
-      "type": "input"
+      "position": "top",
+      "type": "input",
+      "props": {
+        "maxlength": 10
+      }
     },
     "desc": {
       "label": "页面描述",
-      "type": "input"
+      "position": "top",
+      "type": "input",
+      "props": {
+        "maxlength": 20
+      }
+    },
+    "logo": {
+      "label": "上传LOGO",
+      "type": "imagePicker",
+      "position": "top"
+    },
+    "bgc": {
+      "label": "背景颜色",
+      "type": "elColorPicker"
+    },
+    "bgi": {
+      "label": "背景图片",
+      "position": "top",
+      "type": "imagePicker"
     },
     "channel": {
       "label": "投放渠道",
       "type": "radio",
       "options" : [
         {
-          "label": "小程序",
+          "label": "<i class='iconfont icon-weapp'></i>",
           "value": "weapp"
         },
         {
-          "label": "h5",
+          "label": "<i class='iconfont icon-H5'></i>",
           "value": "h5"
         }
       ],

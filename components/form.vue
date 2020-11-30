@@ -8,9 +8,13 @@
         size="small"
       >
         <el-form-item :label="property.label">
+          <div v-if="property.tips" class="tips">{{ property.tips }}</div>
+
           <el-input
             v-if="property.type === 'input'"
             v-model="data.props[key]"
+            v-bind="property.props"
+            show-word-limit
           />
 
           <el-radio-group
@@ -21,7 +25,8 @@
               v-for="option in property.options"
               :key="option.label"
               :label="option.value"
-              >{{ option.label }}
+            >
+              <div v-html="option.label"></div>
             </el-radio-button>
           </el-radio-group>
 
@@ -59,4 +64,11 @@ export default {
 }
 </script>
 
-<style scoped></style>
+<style scoped>
+.tips {
+  padding: 0 0 10px;
+  line-height: 15px;
+  color: #969799;
+  text-align: left;
+}
+</style>

@@ -7,13 +7,14 @@ Vue.component('vue-draggable-resizable', VueDraggableResizable)
 function registerCom(component) {
   component.keys().forEach((fileName) => {
     const componentConfig = component(fileName)
-    const componentName = fileName.slice(2, -4)
+    const componentName = fileName.slice(fileName.lastIndexOf('/') + 1, -4)
     Vue.component(componentName, componentConfig.default || componentConfig)
   })
 }
 
+// 自动注册组件，
 const UiComponent = require.context('@/components/ui/', false, /\.vue$/)
-const EditorComponent = require.context('@/components/editor/', false, /\.vue$/)
+const EditorComponent = require.context('@/components/editor/', true, /\.vue$/)
 
 registerCom(UiComponent)
 registerCom(EditorComponent)

@@ -7,51 +7,31 @@
         @start="dragging = true"
         @end="dragging = false"
       >
-        <div
-          v-for="(item, index) in images"
-          :key="index"
-          class="img-item"
-          @click="handleHotEdit(item, index)"
-        >
-          <img :src="item.url" alt="" class="img__img" />
-          <div class="hot-area" :style="{ transform: `scale(${329 / 375})` }">
-            <vue-draggable-resizable
-              v-for="(areaItem, idx) in item.areas"
-              :key="idx"
-              class="hot-item"
-              :x="areaItem.x"
-              :y="areaItem.y"
-              :w="areaItem.w"
-              :h="areaItem.h"
-              :draggable="false"
-              :resizable="false"
-            >
-              <p>{{ areaItem.linkName }}</p>
-            </vue-draggable-resizable>
+        <div v-for="(item, index) in images" :key="index" class="img-item">
+          <div class="img-item-wrap">
+            <div class="img-item-left">
+              <img :src="item.url" alt="" class="img__img" />
+              <div class="img-item__edit" @click="handleItemChange(index)">
+                更换图片
+              </div>
+            </div>
+            <div class="img-item-content"></div>
           </div>
           <div class="img-del" @click.stop="handleRemove(index)">x</div>
         </div>
       </draggable>
     </div>
-    <div class="add" @click="handleAdd">添加背景图</div>
-    <modal-picker v-model="visible" @change="handleImgChange" />
-    <modal-hot-area
-      v-model="hotVisible"
-      :data="hotItem"
-      @change="handleAreaChange"
-    />
+    <div class="add" @click="handleAdd">+ 添加背景图</div>
+    <modal-picker v-model="visible" :max="max" @change="handleImgChange" />
   </div>
 </template>
 
 <script>
 import draggable from 'vuedraggable'
-import clone from 'lodash/cloneDeep'
 import ModalPicker from '../modal-image-picker'
-import ModalHotArea from '../modal-hot-area'
 export default {
-  name: 'ImagePicker',
+  name: 'AdImagePicker',
   components: {
-    ModalHotArea,
     ModalPicker,
     draggable,
   },
@@ -65,6 +45,7 @@ export default {
   },
   data() {
     return {
+      max: 10,
       visible: false,
       hotVisible: false,
       hotItem: {},
@@ -88,25 +69,27 @@ export default {
   },
   methods: {
     handleAdd() {
+      this.max = 10
       this.visible = true
+      this.handleImgChange = this._handleImgChange.bind(this, null)
+    },
+    _handleImgChange(index, images) {
+      if (this.max === 1) {
+        this.images[index] = images[0]
+      } else {
+        this.images = [...this.images, ...images]
+      }
     },
     handleImgChange(images) {
-      this.images = [...this.images, ...images]
+      this._handleImgChange(null, images)
     },
     handleRemove(index) {
       this.images.splice(index, 1)
     },
-    handleHotEdit(item, index) {
-      this.hotVisible = true
-      this.hotItem = item
-      this.hotIndex = index
-    },
-    handleAreaChange(data) {
-      this.hotItem.areas = data
-      console.log(this.images, '=======')
-      this.images = clone(this.images)
-
-      // this.$emit('input', this.images)
+    handleItemChange(index) {
+      this.max = 1
+      this.visible = true
+      this.handleImgChange = this._handleImgChange.bind(this, index)
     },
   },
 }
@@ -121,10 +104,10 @@ export default {
   align-items: center;
   margin-top: 12px;
   padding: 9px 16px;
-  border: 1px solid #155bd4;
+
   border-radius: 2px;
-  background: #fff;
-  color: #155bd4;
+  background: #e9f1ff;
+  color: #2878ff;
   font-size: 14px;
   line-height: 20px;
   cursor: pointer;
@@ -135,21 +118,46 @@ export default {
   background-color: #fff;
   user-select: none;
   box-shadow: 0 0 4px 0 rgba(10, 42, 97, 0.2);
+  border-radius: 2px;
 }
-.hot-area {
+
+.img-item-wrap {
+  display: flex;
+  padding: 10px;
+}
+.img-item-left {
+  position: relative;
+  width: 70px;
+  height: 70px;
+  border: 1px solid #e5e5e5;
+  text-align: center;
+  background: #f2f4f6;
+}
+.img-item-left .img__img {
+  display: block;
+  box-sizing: border-box;
+  vertical-align: bottom;
+  height: 100%;
+  width: 100%;
+  -o-object-fit: contain;
+  object-fit: contain;
+}
+.img-item__edit {
   position: absolute;
-  left: 0;
-  top: 0;
-  right: 0;
   bottom: 0;
-  z-index: 2;
-  transform-origin: 0 0;
-}
-.hot-item {
-  border: 1px dashed #155bd4;
-  background-color: rgba(51, 136, 255, 0.4);
+  left: 0;
+  width: 100%;
+  height: 20px;
+  line-height: 20px;
+  font-size: 12px;
   color: #fff;
+  background: rgba(0, 0, 0, 0.5);
+  cursor: pointer;
 }
+.img-item-content {
+  flex: 1;
+}
+
 .img-item .img__img {
   width: 100%;
   display: block;

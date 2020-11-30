@@ -3,18 +3,31 @@
   {
     "name": "DxTitle",
     "title": "标题文本",
-    "icon": ""
+    "icon": "icon-editor"
   },
   {
     "name": "DxLine",
-    "title": "分割"
+    "title": "分割",
+    "icon": "icon-line"
   },
   {
     "name": "DxVideo",
-    "title": "视频"
+    "title": "视频",
+    "icon": "icon-video"
   },
   {
     "name": "DxImageAd",
-    "title": "图片广告"
+    "title": "图片广告",
+    "icon": "icon-image-ad"
+  },
+  {
+    "name": "DxEditor",
+    "title": "富文本",
+    "icon": "icon-editor"
+  },
+  {
+    "name": "DxNotice",
+    "title": "公告",
+    "icon": "icon-notice"
   }
 ]

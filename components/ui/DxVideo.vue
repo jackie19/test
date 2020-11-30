@@ -12,7 +12,7 @@ export default {
   props: {
     height: {
       type: Number,
-      default: 50,
+      default: 260,
     },
     customUrl: {
       type: String,
@@ -22,15 +22,15 @@ export default {
   computed: {
     attrs() {
       return {
-        height: {
-          label: '高度',
-          type: 'el-slider',
-          props: {
-            'show-input': true,
-            min: 50,
-            max: 900,
-          },
-        },
+        // height: {
+        //   label: '高度',
+        //   type: 'el-slider',
+        //   props: {
+        //     'show-input': true,
+        //     min: 50,
+        //     max: 900,
+        //   },
+        // },
         customUrl: {
           label: '视频地址',
           type: 'el-input',

@@ -93,7 +93,7 @@ export default {
   width: 100%;
   height: 50px;
   margin-bottom: 0;
-  background-color: #4272ec;
+  border: 2px solid #2878ff;
 }
 
 .components-wrap .components .placeholder:before {
@@ -102,9 +102,10 @@ export default {
   left: 50%;
   top: 50%;
   transform: translate3d(-50%, -50%, 0);
-  content: '组件放置区域';
+  /*content: '组件放置区域';*/
   position: absolute;
-  background-color: #1752e6;
+  background-color: #fff;
+  border: 2px solid #2878ff;
   color: #fff;
 }
 

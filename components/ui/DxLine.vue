@@ -25,7 +25,7 @@ export default {
     },
     bgColor: {
       type: String,
-      default: '#fff',
+      default: '',
     },
     display: {
       type: Boolean,

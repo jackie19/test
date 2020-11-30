@@ -6,7 +6,10 @@
           {{ title }}
         </div>
       </div>
-      <div class="preview-body">
+      <div
+        class="preview-body"
+        :style="{ backgroundColor: bgc, backgroundImage: bgi }"
+      >
         <components />
       </div>
     </div>
@@ -20,11 +23,20 @@ export default {
   name: 'Preview',
   components: { components },
   computed: {
-    title() {
-      return (
+    pageData() {
+      const data =
         this.$store.state.components.length &&
-        this.$store.state.components[0].props.title
-      )
+        this.$store.state.components[0].props
+      return data || {}
+    },
+    title() {
+      return this.pageData.title
+    },
+    bgi() {
+      return `url(${this.pageData.bgi})`
+    },
+    bgc() {
+      return this.pageData.bgc
     },
   },
   methods: {
@@ -77,9 +89,11 @@ export default {
 
 .preview-body {
   min-height: 750px;
-  background-color: #fff;
   box-shadow: 0 0 14px 0 rgba(0, 0, 0, 0.1);
   margin-bottom: 20px;
+  background-size: 100%;
+  background-position: 0 0;
+  background-repeat: no-repeat;
 }
 
 .preview-wrap .preview .preview-head {
