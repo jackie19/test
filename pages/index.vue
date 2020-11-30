@@ -25,10 +25,35 @@ export default {
     preview,
     editor,
   },
+  beforeMount() {
+    const attrs = require.context('@/components/ui/', false, /\.js$/)
+    const componentsAttrs = new Map()
+    attrs.keys().forEach((fileName) => {
+      const componentName = fileName.slice(fileName.lastIndexOf('/') + 1, -3)
+      const componentConfig = attrs(fileName)
+      componentsAttrs.set(componentName, componentConfig.default)
+      console.log('111')
+    })
+
+    this.$axios.get('/mock.json').then((res) => {
+      const data = res.data.map((item) => {
+        item.attrs = componentsAttrs.get(item.name)
+        return {
+          ...item,
+        }
+      })
+      console.log(res, 'mock=======')
+      this.$store.commit('initComponent', data)
+    })
+  },
   methods: {
     save() {
-      const { components } = this.$store.state
-      console.log('save====', components)
+      let { components } = this.$store.state
+      components = components.map((item) => {
+        const { attrs, ...rest } = item
+        return rest
+      })
+      console.log('save====', JSON.stringify(components))
     },
   },
 }

@@ -1,0 +1,30 @@
+[
+  {
+    "guid": "PageMeta",
+    "name": "PageMeta",
+    "title": "页面名词",
+    "props": {
+      "title": "商城首页",
+      "desc": "",
+      "channel": "h5",
+      "bgi": "",
+      "bgc": "#fff",
+      "logo": ""
+    }
+  },
+  {
+    "title": "标题文本",
+    "name": "DxTitle",
+    "guid": "cce66743-DxTitle",
+    "props": {
+      "title": "标题",
+      "desc": "描述内容",
+      "titleSize": "16px",
+      "descSize": "14px",
+      "align": "left",
+      "titleColor": "#333",
+      "descColor": "#333",
+      "bgColor": ""
+    }
+  }
+]

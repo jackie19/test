@@ -4,6 +4,9 @@ export const state = () => ({
 })
 
 export const mutations = {
+  initComponent(state, components) {
+    state.components = components
+  },
   currentComponent(state, guid) {
     state.current = guid
   },

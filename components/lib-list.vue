@@ -36,6 +36,7 @@ attrs.keys().forEach((fileName) => {
   const componentConfig = attrs(fileName)
   componentsAttrs.set(componentName, componentConfig.default)
 })
+
 export default {
   components: {
     draggable,
