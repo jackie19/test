@@ -32,7 +32,6 @@ export default {
       const componentName = fileName.slice(fileName.lastIndexOf('/') + 1, -3)
       const componentConfig = attrs(fileName)
       componentsAttrs.set(componentName, componentConfig.default)
-      console.log('111')
     })
 
     this.$axios.get('/mock.json').then((res) => {
@@ -42,8 +41,9 @@ export default {
           ...item,
         }
       })
-      console.log(res, 'mock=======')
-      this.$store.commit('initComponent', data)
+      // eslint-disable-next-line no-console
+      console.log(data, 'mock=======')
+      // this.$store.commit('initComponent', data)
     })
   },
   methods: {
@@ -53,6 +53,7 @@ export default {
         const { attrs, ...rest } = item
         return rest
       })
+      // eslint-disable-next-line no-console
       console.log('save====', JSON.stringify(components))
     },
   },

@@ -17,6 +17,8 @@ export default {
   },
   logo: {
     label: '上传LOGO',
+    tips:
+      '建议尺寸：300*300px，大小不超过200k，支持jpg/png格式，用于微信分享时显示',
     type: 'imagePicker',
     position: 'top',
   },
@@ -26,6 +28,8 @@ export default {
   },
   bgi: {
     label: '背景图片',
+    tips:
+      '请上传jpg/png/gif格式，建议图片宽度为750px，高度不限，大小不超过3M。',
     position: 'top',
     type: 'imagePicker',
   },

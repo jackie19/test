@@ -103,7 +103,6 @@ export default {
     },
     handleAreaChange(data) {
       this.hotItem.areas = data
-      console.log(this.images, '=======')
       this.images = clone(this.images)
 
       // this.$emit('input', this.images)

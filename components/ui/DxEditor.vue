@@ -44,5 +44,6 @@ export default {
 .dx-editor-content /deep/ th {
   padding: 5px 10px;
   border: 1px solid #ddd;
+  box-sizing: content-box;
 }
 </style>

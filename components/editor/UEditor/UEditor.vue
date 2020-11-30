@@ -143,14 +143,14 @@ export default {
     _loadScripts() {
       // 确保多个实例同时渲染时不会重复创建SCRIPT标签
       if (window.loadEnv) {
-        return new Promise((resolve, reject) => {
+        return new Promise((resolve) => {
           window.loadEnv.on('scriptsLoaded', function () {
             resolve()
           })
         })
       } else {
         window.loadEnv = new LoadEvent()
-        return new Promise((resolve, reject) => {
+        return new Promise((resolve) => {
           // 如果在其他地方只引用ueditor.all.min.js，在加载ueditor.config.js之后仍需要重新加载ueditor.all.min.js，所以必须确保ueditor.config.js已加载
           // this._loadService().then(() => this._loadConfig()).then(() => this._loadCore()).then(() => {
           //   window.loadEnv.emit("scriptsLoaded");
@@ -168,13 +168,14 @@ export default {
               resolve()
             })
             .catch((err) => {
+              // eslint-disable-next-line no-console
               console.error(err)
             })
         })
       }
     },
     _loadConfig() {
-      return new Promise((resolve, reject) => {
+      return new Promise((resolve) => {
         if (
           !!window.UE &&
           !!window.UEDITOR_CONFIG &&
@@ -197,6 +198,7 @@ export default {
             resolve()
           } else {
             console &&
+              // eslint-disable-next-line no-console
               console.error(
                 '加载ueditor.config.js失败,请检查您的配置地址UEDITOR_HOME_URL填写是否正确!'
               )
@@ -205,7 +207,7 @@ export default {
       })
     },
     _loadService() {
-      return new Promise((resolve, reject) => {
+      return new Promise((resolve) => {
         const coreScript = document.createElement('script')
         coreScript.type = 'text/javascript'
         coreScript.src =
@@ -217,7 +219,7 @@ export default {
       })
     },
     _loadParse() {
-      return new Promise((resolve, reject) => {
+      return new Promise((resolve) => {
         const coreScript = document.createElement('script')
         coreScript.type = 'text/javascript'
         coreScript.src =
@@ -229,7 +231,7 @@ export default {
       })
     },
     _loadJquery() {
-      return new Promise((resolve, reject) => {
+      return new Promise((resolve) => {
         const coreScript = document.createElement('script')
         coreScript.type = 'text/javascript'
         coreScript.src =
@@ -241,7 +243,7 @@ export default {
       })
     },
     _loadCore() {
-      return new Promise((resolve, reject) => {
+      return new Promise((resolve) => {
         if (!!window.UE && !!window.UE.getEditor) {
           resolve()
           return

@@ -59,7 +59,10 @@ export default {
     },
   },
   mounted() {
-    this.$store.commit('addComponent', pageMeta)
+    this.$store.commit('addComponent', {
+      ...pageMeta,
+      attrs: componentsAttrs.get('PageMeta'),
+    })
   },
   methods: {
     guid(name) {
