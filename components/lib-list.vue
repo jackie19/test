@@ -29,6 +29,13 @@ import draggable from 'vuedraggable'
 import items from '@/assets/libItems.json'
 import pageMeta from '@/assets/pageMeta.json'
 
+const attrs = require.context('@/components/ui/', false, /\.js$/)
+const componentsAttrs = new Map()
+attrs.keys().forEach((fileName) => {
+  const componentName = fileName.slice(fileName.lastIndexOf('/') + 1, -3)
+  const componentConfig = attrs(fileName)
+  componentsAttrs.set(componentName, componentConfig.default)
+})
 export default {
   components: {
     draggable,
@@ -73,7 +80,8 @@ export default {
     },
     clone(item) {
       const props = { ...this.$refs[item.name][0].$props }
-      const attrs = { ...this.$refs[item.name][0].attrs }
+      // const attrs = { ...this.$refs[item.name][0].attrs }
+      const attrs = componentsAttrs.get(item.name)
       const guid = this.guid(item.name)
       return {
         title: item.title,

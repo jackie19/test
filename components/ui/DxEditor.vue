@@ -20,17 +20,6 @@ export default {
       default: '',
     },
   },
-  computed: {
-    attrs() {
-      return {
-        content: {
-          label: '',
-          position: 'top',
-          type: 'UEditor',
-        },
-      }
-    },
-  },
 }
 </script>
 

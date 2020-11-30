@@ -50,6 +50,16 @@ export default {
   overflow-y: auto;
   background-color: #fff;
 }
+
+.editor::-webkit-scrollbar {
+  -webkit-appearance: none;
+  width: 3px;
+  background-color: #f5f5f5;
+}
+
+.editor::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.3);
+}
 .e-content {
   text-align: left;
   padding: 12px;
