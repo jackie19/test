@@ -101,6 +101,7 @@ export default {
   width: 100%;
   height: 100%;
   display: block;
+  object-fit: contain;
 }
 .img-item {
   margin-top: 12px;
